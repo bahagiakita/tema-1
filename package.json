@@ -1,0 +1,34 @@
+{
+  "name": "earthy-botanical",
+  "version": "1.0.0",
+  "description": "Earthy Botanical wedding invitation template for BahagiaKita",
+  "author": "Yusuf (BahagiaKita)",
+  "license": "SEE LICENSE IN LICENSE.md",
+  "scripts": {
+    "dev": "npx @tailwindcss/cli -i ./css/input.css -o ./css/output.css --watch",
+    "serve": "python3 -m http.server 5501",
+    "start": "concurrently -k -n \"tailwind,python\" -c \"cyan,yellow\" \"npm run dev\" \"npm run serve\"",
+    "build": "npx @tailwindcss/cli -i ./css/input.css -o ./css/output.css",
+    "gen:sql": "node scripts/generate-supabase-table.js",
+    "optimize:images": "node scripts/optimize-images.js",
+    "photos:convert": "node scripts/process-photos.js",
+    "gallery:convert": "node scripts/process-photos.js",
+    "couple:convert": "node scripts/split-couple-photo.js",
+    "photo:couple": "node scripts/split-couple-photo.js",
+    "couple:crop": "node scripts/crop-couple-gui.js",
+    "logos:update": "node scripts/download-and-optimize-logos.js",
+    "finalize": "node scripts/finalize-invitation.js",
+    "finalize:prod": "node scripts/finalize-invitation.js",
+    "template:restore": "node scripts/restore-template.js",
+    "restore": "node scripts/restore-template.js"
+  },
+  "dependencies": {
+    "@tailwindcss/cli": "^4.0.0",
+    "animate.css": "^4.1.1",
+    "tailwindcss": "^4.0.0"
+  },
+  "devDependencies": {
+    "concurrently": "^10.0.5",
+    "sharp": "^0.35.4"
+  }
+}

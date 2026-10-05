@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="250" viewBox="0 0 200 250" fill="none">
+  <rect width="200" height="250" fill="#e2dcc9"/>
+  <!-- Dress -->
+  <path d="M70 80 L70 150 L50 220 L150 220 L130 150 L130 80 Z" fill="#c4876a" opacity="0.7"/>
+  <!-- Neckline -->
+  <path d="M80 80 Q100 90 120 80 L115 70 L85 70 Z" fill="#b8704a" opacity="0.8"/>
+  <!-- Floral accent -->
+  <circle cx="85" cy="140" r="5" fill="#7da268" opacity="0.5"/>
+  <circle cx="115" cy="160" r="4" fill="#7da268" opacity="0.5"/>
+  <text x="100" y="245" text-anchor="middle" font-family="Poppins, sans-serif" font-size="10" fill="#b8704a">Women's Attire</text>
+</svg>

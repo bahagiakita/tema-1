@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300" viewBox="0 0 400 300" fill="none">
+  <rect width="400" height="300" fill="#f7f6f0"/>
+  <!-- Botanical accents -->
+  <g opacity="0.4">
+    <ellipse cx="40" cy="50" rx="30" ry="15" transform="rotate(-30 40 50)" fill="#7da268"/>
+    <ellipse cx="360" cy="260" rx="30" ry="15" transform="rotate(30 360 260)" fill="#7da268"/>
+    <circle cx="350" cy="40" r="8" fill="#c4876a"/>
+    <circle cx="50" cy="260" r="6" fill="#c4876a"/>
+  </g>
+  <!-- Center content -->
+  <text x="200" y="120" text-anchor="middle" font-family="Poppins, sans-serif" font-size="12" letter-spacing="3" fill="#b0a37c" text-transform="uppercase">THE WEDDING OF</text>
+  <text x="200" y="160" text-anchor="middle" font-family="Playfair Display, serif" font-size="28" font-weight="700" fill="#3d4f2e">Ahmad & Fatimah</text>
+  <line x1="170" y1="175" x2="230" y2="175" stroke="#c4876a" stroke-width="1.5"/>
+  <text x="200" y="200" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" fill="#5a7245">15 Desember 2025</text>
+  <text x="200" y="220" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" fill="#b0a37c">Bogor, Jawa Barat</text>
+  <!-- Theme name -->
+  <text x="200" y="270" text-anchor="middle" font-family="Poppins, sans-serif" font-size="10" font-weight="500" fill="#7da268" letter-spacing="1">EARTHY BOTANICAL</text>
+</svg>

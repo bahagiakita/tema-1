@@ -1,0 +1,44 @@
+# Dependencies
+node_modules/
+.npm/
+
+# Environment & Secrets
+.env
+.env.*
+!.env.example
+
+# Master Template Vault (Local preservation, DO NOT deploy to GitHub Pages)
+.template-vault/
+.backup/
+*.bak
+*.tmp
+*.log
+supabase-output/
+
+# Raw Upload Photos (Private / heavy uncompressed source images)
+images/has_photos/raw/**/*
+!images/has_photos/raw/**/.gitkeep
+!images/has_photos/raw/README.md
+
+# Leftover / Old Backups
+images/has_photos_bak/
+css/navbar-backup.css
+
+# OS Generated Files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# IDE & Editor Configs
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?

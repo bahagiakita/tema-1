@@ -1,0 +1,1307 @@
+/* ============================================================
+   Earthy Botanical — css/input.css
+   BahagiaKita Wedding Invitation System
+   Copyright (c) 2025–2026 Yusuf (BahagiaKita). All Rights Reserved.
+   ============================================================ */
+
+@import "tailwindcss";
+@import "./custom.css";
+
+/* ============================================
+   GOOGLE FONTS - Font System
+   ============================================ */
+@layer theme {
+  :root {
+    /* Primary Font - Playfair Display untuk judul utama dan nama pengantin */
+    --font-primary: "Playfair Display", serif;
+
+    /* Secondary Font - Poppins untuk subjudul dan judul section */
+    --font-secondary: "Poppins", sans-serif;
+
+    /* Body Font - Inter untuk teks biasa dan konten */
+    --font-body: "Inter", sans-serif;
+
+    /* Arabic Font - Amiri untuk teks Arab */
+    --font-arabic: "Amiri", serif;
+  }
+}
+
+/* ============================================
+   FONT UTILITY CLASSES
+   ============================================ */
+@layer utilities {
+  /* Primary Font - untuk judul utama, nama pengantin */
+  .font-primary {
+    font-family: var(--font-primary);
+  }
+
+  /* Secondary Font - untuk subjudul, judul section */
+  .font-secondary {
+    font-family: var(--font-secondary);
+  }
+
+  /* Body Font - untuk teks biasa */
+  .font-body {
+    font-family: var(--font-body);
+  }
+
+  /* Arabic Font - untuk teks Arab */
+  .font-arab {
+    font-family: var(--font-arabic);
+  }
+
+  /* Alias untuk kompatibilitas dengan kode yang ada */
+  .font-nama {
+    font-family: var(--font-primary);
+    font-weight: 600;
+  }
+
+  /* Custom background color */
+  .bg-primary-75 {
+    background-color: var(--color-primary-75);
+  }
+}
+
+/* ============================================
+   BASE TYPOGRAPHY - Ukuran font yang lebih mudah dibaca
+   ============================================ */
+@layer base {
+  body {
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-primary);
+    font-weight: 600;
+    line-height: 1.3;
+  }
+
+  p {
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.7;
+  }
+
+  /* Ukuran font yang lebih besar dan mudah dibaca */
+  .text-xs {
+    font-size: 0.875rem; /* 14px */
+    line-height: 1.6;
+  }
+
+  .text-sm {
+    font-size: 0.9375rem; /* 15px */
+    line-height: 1.65;
+  }
+
+  .text-base {
+    font-size: 1rem; /* 16px */
+    line-height: 1.7;
+  }
+
+  .text-lg {
+    font-size: 1.125rem; /* 18px */
+    line-height: 1.75;
+  }
+
+  .text-xl {
+    font-size: 1.25rem; /* 20px */
+    line-height: 1.7;
+  }
+
+  .text-2xl {
+    font-size: 1.5rem; /* 24px */
+    line-height: 1.5;
+  }
+
+  .text-3xl {
+    font-size: 1.875rem; /* 30px */
+    line-height: 1.4;
+  }
+
+  .text-4xl {
+    font-size: 2.25rem; /* 36px */
+    line-height: 1.3;
+  }
+
+  .text-5xl {
+    font-size: 3rem; /* 48px */
+    line-height: 1.2;
+  }
+
+  .text-6xl {
+    font-size: 3.75rem; /* 60px */
+    line-height: 1.1;
+  }
+
+  /* Responsive font sizes untuk mobile */
+  @media (max-width: 768px) {
+    body {
+      font-size: 15px;
+    }
+
+    .text-2xl {
+      font-size: 1.375rem; /* 22px */
+    }
+
+    .text-3xl {
+      font-size: 1.625rem; /* 26px */
+    }
+
+    .text-4xl {
+      font-size: 1.875rem; /* 30px */
+    }
+
+    .text-5xl {
+      font-size: 2.25rem; /* 36px */
+    }
+
+    .text-6xl {
+      font-size: 2.75rem; /* 44px */
+    }
+  }
+}
+
+/* ============================================
+   FIX UNTUK MAIN-INVITE-PAGE TIDAK TERLIHAT SAAT LANDING PAGE AKTIF
+   ============================================ */
+@layer utilities {
+  /* Pastikan landing page selalu di atas */
+  #landing-page {
+    @apply absolute;
+    z-index: 50 !important;
+  }
+
+  /* Sembunyikan main-invite-page saat hidden */
+  #main-invite-page.hidden {
+    @apply hidden invisible opacity-0 pointer-events-none h-0 overflow-hidden;
+  }
+
+  /* Tampilkan main-invite-page saat tidak hidden */
+  #main-invite-page:not(.hidden) {
+    @apply block visible relative h-auto opacity-100 pointer-events-auto;
+  }
+
+  /* Pastikan welcome-section selalu terlihat */
+  #welcome-section {
+    @apply relative block visible opacity-100;
+    z-index: 0 !important;
+  }
+}
+
+/* ============================================
+   CUSTOM COLORS - @layer theme
+   Sesuaikan warna-warna ini sesuai kebutuhan menggunakan kode hex
+   ============================================ */
+@layer theme {
+  :root,
+  :host {
+    /* Primary Color - Earthy Botanical (Sage Green & Natural Earth Tones) */
+    --color-primary-50:  #f7f6f0;
+    --color-primary-75:  #ede9dc;
+    --color-primary-100: #e2dcc9;
+    --color-primary-200: #c9bfa3;
+    --color-primary-300: #b0a37c;
+    --color-primary-400: #c4876a;
+    --color-primary-500: #7da268;
+    --color-primary-600: #6d9056;
+    --color-primary-700: #5a7245;
+    --color-primary-800: #3d4f2e;
+    --color-primary-900: #2a3a20;
+    --color-primary-950: #1a2410;
+
+    /* Warna Status */
+    --color-error: #b85c4a;
+    --color-success: #6d9056;
+
+    /* Legacy colors untuk kompatibilitas */
+    --color-abu: #757575;
+    --color-abu-tua: #555555;
+    --color-abu-gelap: #3c3c3c;
+    --color-abu-terang: #bdbdbd;
+    --color-abu-paling-terang: #e0e0e0;
+    --color-abu-paling-gelap: #0f0f0f;
+  }
+}
+
+/* ============================================
+   WAVE ANIMATION FOR FLOWERS - @layer utilities
+   ============================================ */
+@layer utilities {
+  /* Animasi sway telah digantikan oleh sistem wave-bunga/wave-daun yang lebih halus */
+
+  /* ============================================
+     WAVE ANIMATION SYSTEM - Smooth & Natural
+     ============================================ */
+
+  /* Keyframe untuk bunga - gerakan lambat dan elegan */
+  @keyframes wave-bunga {
+    0%,
+    100% {
+      transform: rotate(0deg);
+    }
+    25% {
+      transform: rotate(-2deg);
+    }
+    50% {
+      transform: rotate(0deg);
+    }
+    75% {
+      transform: rotate(2deg);
+    }
+  }
+
+  /* Keyframe untuk daun 1 - gerakan sangat halus dan smooth seperti daun asli */
+  @keyframes wave-daun-1 {
+    0%,
+    100% {
+      transform: rotate(0deg) translateX(0px);
+    }
+    2% {
+      transform: rotate(-0.44deg) translateX(-0.18px);
+    }
+    4% {
+      transform: rotate(-0.88deg) translateX(-0.36px);
+    }
+    6% {
+      transform: rotate(-1.32deg) translateX(-0.54px);
+    }
+    8% {
+      transform: rotate(-1.76deg) translateX(-0.72px);
+    }
+    10% {
+      transform: rotate(-2.2deg) translateX(-0.9px);
+    }
+    12% {
+      transform: rotate(-2.64deg) translateX(-1.08px);
+    }
+    14% {
+      transform: rotate(-3.08deg) translateX(-1.26px);
+    }
+    16% {
+      transform: rotate(-3.52deg) translateX(-1.44px);
+    }
+    18% {
+      transform: rotate(-3.96deg) translateX(-1.62px);
+    }
+    20% {
+      transform: rotate(-4.4deg) translateX(-1.8px);
+    }
+    22% {
+      transform: rotate(-4.84deg) translateX(-1.98px);
+    }
+    24% {
+      transform: rotate(-5.28deg) translateX(-2.16px);
+    }
+    26% {
+      transform: rotate(-5.72deg) translateX(-2.34px);
+    }
+    28% {
+      transform: rotate(-6.16deg) translateX(-2.52px);
+    }
+    30% {
+      transform: rotate(-6.6deg) translateX(-2.7px);
+    }
+    32% {
+      transform: rotate(-7.04deg) translateX(-2.88px);
+    }
+    34% {
+      transform: rotate(-7.48deg) translateX(-3.06px);
+    }
+    36% {
+      transform: rotate(-7.92deg) translateX(-3.24px);
+    }
+    38% {
+      transform: rotate(-8.36deg) translateX(-3.42px);
+    }
+    40% {
+      transform: rotate(-8.8deg) translateX(-3.6px);
+    }
+    42% {
+      transform: rotate(-9.24deg) translateX(-3.78px);
+    }
+    44% {
+      transform: rotate(-9.68deg) translateX(-3.96px);
+    }
+    46% {
+      transform: rotate(-10.12deg) translateX(-4.14px);
+    }
+    47% {
+      transform: rotate(-10.34deg) translateX(-4.23px);
+    }
+    48% {
+      transform: rotate(-10.56deg) translateX(-4.32px);
+    }
+    49% {
+      transform: rotate(-10.78deg) translateX(-4.41px);
+    }
+    50% {
+      transform: rotate(-11deg) translateX(-4.5px);
+    }
+    50.5% {
+      transform: rotate(-10.95deg) translateX(-4.48px);
+    }
+    51% {
+      transform: rotate(-10.89deg) translateX(-4.45px);
+    }
+    51.5% {
+      transform: rotate(-10.78deg) translateX(-4.41px);
+    }
+    52% {
+      transform: rotate(-10.56deg) translateX(-4.32px);
+    }
+    53% {
+      transform: rotate(-10.34deg) translateX(-4.23px);
+    }
+    54% {
+      transform: rotate(-10.12deg) translateX(-4.14px);
+    }
+    56% {
+      transform: rotate(-9.68deg) translateX(-3.96px);
+    }
+    58% {
+      transform: rotate(-9.24deg) translateX(-3.78px);
+    }
+    60% {
+      transform: rotate(-8.8deg) translateX(-3.6px);
+    }
+    62% {
+      transform: rotate(-8.36deg) translateX(-3.42px);
+    }
+    64% {
+      transform: rotate(-7.92deg) translateX(-3.24px);
+    }
+    66% {
+      transform: rotate(-7.48deg) translateX(-3.06px);
+    }
+    68% {
+      transform: rotate(-7.04deg) translateX(-2.88px);
+    }
+    70% {
+      transform: rotate(-6.6deg) translateX(-2.7px);
+    }
+    72% {
+      transform: rotate(-6.16deg) translateX(-2.52px);
+    }
+    74% {
+      transform: rotate(-5.72deg) translateX(-2.34px);
+    }
+    76% {
+      transform: rotate(-5.28deg) translateX(-2.16px);
+    }
+    78% {
+      transform: rotate(-4.84deg) translateX(-1.98px);
+    }
+    80% {
+      transform: rotate(-4.4deg) translateX(-1.8px);
+    }
+    82% {
+      transform: rotate(-3.96deg) translateX(-1.62px);
+    }
+    84% {
+      transform: rotate(-3.52deg) translateX(-1.44px);
+    }
+    86% {
+      transform: rotate(-3.08deg) translateX(-1.26px);
+    }
+    88% {
+      transform: rotate(-2.64deg) translateX(-1.08px);
+    }
+    90% {
+      transform: rotate(-2.2deg) translateX(-0.9px);
+    }
+    92% {
+      transform: rotate(-1.76deg) translateX(-0.72px);
+    }
+    94% {
+      transform: rotate(-1.32deg) translateX(-0.54px);
+    }
+    96% {
+      transform: rotate(-0.88deg) translateX(-0.36px);
+    }
+    98% {
+      transform: rotate(-0.44deg) translateX(-0.18px);
+    }
+  }
+
+  /* Keyframe untuk daun 2 - gerakan halus dengan pola berbeda */
+  @keyframes wave-daun-2 {
+    0%,
+    100% {
+      transform: rotate(0deg) translateX(0px);
+    }
+    2% {
+      transform: rotate(0.44deg) translateX(0.18px);
+    }
+    4% {
+      transform: rotate(0.88deg) translateX(0.36px);
+    }
+    6% {
+      transform: rotate(1.32deg) translateX(0.54px);
+    }
+    8% {
+      transform: rotate(1.76deg) translateX(0.72px);
+    }
+    10% {
+      transform: rotate(2.2deg) translateX(0.9px);
+    }
+    12% {
+      transform: rotate(2.64deg) translateX(1.08px);
+    }
+    14% {
+      transform: rotate(3.08deg) translateX(1.26px);
+    }
+    16% {
+      transform: rotate(3.52deg) translateX(1.44px);
+    }
+    18% {
+      transform: rotate(3.96deg) translateX(1.62px);
+    }
+    20% {
+      transform: rotate(4.4deg) translateX(1.8px);
+    }
+    22% {
+      transform: rotate(4.84deg) translateX(1.98px);
+    }
+    24% {
+      transform: rotate(5.28deg) translateX(2.16px);
+    }
+    26% {
+      transform: rotate(5.72deg) translateX(2.34px);
+    }
+    28% {
+      transform: rotate(6.16deg) translateX(2.52px);
+    }
+    30% {
+      transform: rotate(6.6deg) translateX(2.7px);
+    }
+    32% {
+      transform: rotate(7.04deg) translateX(2.88px);
+    }
+    34% {
+      transform: rotate(7.48deg) translateX(3.06px);
+    }
+    36% {
+      transform: rotate(7.92deg) translateX(3.24px);
+    }
+    38% {
+      transform: rotate(8.36deg) translateX(3.42px);
+    }
+    40% {
+      transform: rotate(8.8deg) translateX(3.6px);
+    }
+    42% {
+      transform: rotate(9.24deg) translateX(3.78px);
+    }
+    44% {
+      transform: rotate(9.68deg) translateX(3.96px);
+    }
+    46% {
+      transform: rotate(10.12deg) translateX(4.14px);
+    }
+    47% {
+      transform: rotate(10.34deg) translateX(4.23px);
+    }
+    48% {
+      transform: rotate(10.56deg) translateX(4.32px);
+    }
+    49% {
+      transform: rotate(10.78deg) translateX(4.41px);
+    }
+    50% {
+      transform: rotate(11deg) translateX(4.5px);
+    }
+    50.5% {
+      transform: rotate(10.95deg) translateX(4.48px);
+    }
+    51% {
+      transform: rotate(10.89deg) translateX(4.45px);
+    }
+    51.5% {
+      transform: rotate(10.78deg) translateX(4.41px);
+    }
+    52% {
+      transform: rotate(10.56deg) translateX(4.32px);
+    }
+    53% {
+      transform: rotate(10.34deg) translateX(4.23px);
+    }
+    54% {
+      transform: rotate(10.12deg) translateX(4.14px);
+    }
+    56% {
+      transform: rotate(9.68deg) translateX(3.96px);
+    }
+    58% {
+      transform: rotate(9.24deg) translateX(3.78px);
+    }
+    60% {
+      transform: rotate(8.8deg) translateX(3.6px);
+    }
+    62% {
+      transform: rotate(8.36deg) translateX(3.42px);
+    }
+    64% {
+      transform: rotate(7.92deg) translateX(3.24px);
+    }
+    66% {
+      transform: rotate(7.48deg) translateX(3.06px);
+    }
+    68% {
+      transform: rotate(7.04deg) translateX(2.88px);
+    }
+    70% {
+      transform: rotate(6.6deg) translateX(2.7px);
+    }
+    72% {
+      transform: rotate(6.16deg) translateX(2.52px);
+    }
+    74% {
+      transform: rotate(5.72deg) translateX(2.34px);
+    }
+    76% {
+      transform: rotate(5.28deg) translateX(2.16px);
+    }
+    78% {
+      transform: rotate(4.84deg) translateX(1.98px);
+    }
+    80% {
+      transform: rotate(4.4deg) translateX(1.8px);
+    }
+    82% {
+      transform: rotate(3.96deg) translateX(1.62px);
+    }
+    84% {
+      transform: rotate(3.52deg) translateX(1.44px);
+    }
+    86% {
+      transform: rotate(3.08deg) translateX(1.26px);
+    }
+    88% {
+      transform: rotate(2.64deg) translateX(1.08px);
+    }
+    90% {
+      transform: rotate(2.2deg) translateX(0.9px);
+    }
+    92% {
+      transform: rotate(1.76deg) translateX(0.72px);
+    }
+    94% {
+      transform: rotate(1.32deg) translateX(0.54px);
+    }
+    96% {
+      transform: rotate(0.88deg) translateX(0.36px);
+    }
+    98% {
+      transform: rotate(0.44deg) translateX(0.18px);
+    }
+  }
+
+  /* Class utilities untuk wave animations */
+  .wave-bunga {
+    @apply animate-[wave-bunga_5.5s_ease-in-out_infinite];
+    transform-origin: center center;
+    animation-delay: 0s;
+  }
+
+  .wave-daun-1 {
+    animation: wave-daun-1 4.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite;
+    transform-origin: center center;
+    animation-delay: 0s;
+    will-change: transform;
+  }
+
+  .wave-daun-2 {
+    animation: wave-daun-2 5.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite;
+    transform-origin: center center;
+    animation-delay: 1.5s;
+    will-change: transform;
+  }
+
+  /* Origin points untuk rotasi yang berbeda */
+  .origin-top-left {
+    transform-origin: top left;
+  }
+
+  .origin-top-right {
+    transform-origin: top right;
+  }
+
+  .origin-bottom-left {
+    transform-origin: bottom left;
+  }
+
+  .origin-bottom-right {
+    transform-origin: bottom right;
+  }
+
+  /* Animasi rotasi lembut untuk circle decoration */
+  @keyframes gentle-rotate {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  /* Class untuk animasi rotasi lembut - tempo sangat lambat (4 menit) */
+  .animate-gentle-rotate {
+    animation: gentle-rotate 240s linear infinite;
+    transform-origin: center center;
+  }
+}
+
+/* ============================================
+   BUTTON COMPONENT - @layer components
+   ============================================ */
+@layer components {
+  /* Button utama - dapat diubah semua propertinya di sini */
+  .button-main {
+    @apply inline-flex items-center justify-center px-6 py-3 font-semibold text-base leading-normal text-center no-underline border-none rounded-full cursor-pointer transition-all duration-300 ease-in-out;
+    background-color: var(--color-primary-500);
+    color: #ffffff;
+    box-shadow:
+      0 4px 6px -1px rgba(0, 0, 0, 0.1),
+      0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  }
+
+  /* Hover state */
+  .button-main:hover {
+    @apply -translate-y-0.5;
+    background-color: var(--color-primary-700);
+    box-shadow:
+      0 10px 15px -3px rgba(0, 0, 0, 0.1),
+      0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  }
+
+  /* Active state */
+  .button-main:active {
+    @apply translate-y-0;
+    box-shadow:
+      0 2px 4px -1px rgba(0, 0, 0, 0.1),
+      0 1px 2px -1px rgba(0, 0, 0, 0.06);
+  }
+
+  /* Focus state */
+  .button-main:focus {
+    @apply outline-none;
+    box-shadow:
+      0 0 0 4px rgba(0, 0, 0, 0.1),
+      0 0 0 6px var(--color-primary-300);
+  }
+
+  /* Disabled state */
+  .button-main:disabled {
+    @apply opacity-50 cursor-not-allowed pointer-events-none;
+  }
+
+  /* Variant: Secondary */
+  .button-secondary {
+    @apply text-white;
+    background-color: var(--color-primary-500);
+  }
+
+  .button-secondary:hover {
+    background-color: var(--color-primary-700);
+  }
+
+  /* Variant: Outline */
+  .button-outline {
+    @apply bg-transparent border-2;
+    color: var(--color-primary-600);
+    border-color: var(--color-primary-600);
+    box-shadow: none;
+  }
+
+  .button-outline:hover {
+    @apply text-white;
+    background-color: var(--color-primary-600);
+  }
+
+  /* Variant: Ghost */
+  .button-ghost {
+    @apply bg-transparent;
+    color: var(--color-primary-600);
+    box-shadow: none;
+  }
+
+  .button-ghost:hover {
+    background-color: var(--color-primary-50);
+  }
+
+  /* Size variants */
+  .button-sm {
+    @apply px-4 py-2 text-sm;
+  }
+
+  .button-lg {
+    @apply px-8 py-4 text-lg;
+  }
+
+  .button-xl {
+    @apply px-10 py-5 text-xl;
+  }
+}
+
+/* ============================================
+   ADDITIONAL UTILITIES & DECORATIONS
+   Catatan: Di Tailwind v4, warna yang didefinisikan di @layer theme
+   otomatis tersedia sebagai utility classes (bg-primary-600, text-primary-500, dll)
+   Utility di bawah ini untuk memastikan kompatibilitas
+   ============================================ */
+@layer utilities {
+  /* Text color untuk primary (fallback) */
+  .text-primary {
+    color: var(--color-primary-600);
+  }
+
+  /* Background color untuk primary (fallback) */
+  .bg-primary {
+    background-color: var(--color-primary-600);
+  }
+
+  /* Border color untuk primary (fallback) */
+  .border-primary {
+    border-color: var(--color-primary-600);
+  }
+
+  /* Custom background colors for primary palette variants */
+  .bg-primary-50 {
+    background-color: var(--color-primary-50);
+  }
+
+  .bg-primary-100 {
+    background-color: var(--color-primary-100);
+  }
+
+  .bg-primary-200 {
+    background-color: var(--color-primary-200);
+  }
+
+  .bg-primary-300 {
+    background-color: var(--color-primary-300);
+  }
+
+  .bg-primary-400 {
+    background-color: var(--color-primary-400);
+  }
+
+  .bg-primary-500 {
+    background-color: var(--color-primary-500);
+  }
+
+  .bg-primary-600 {
+    background-color: var(--color-primary-600);
+  }
+
+  .bg-primary-700 {
+    background-color: var(--color-primary-700);
+  }
+
+  .bg-primary-800 {
+    background-color: var(--color-primary-800);
+  }
+
+  .bg-primary-900 {
+    background-color: var(--color-primary-900);
+  }
+
+  .bg-primary-950 {
+    background-color: var(--color-primary-950);
+  }
+
+  /* Border utilities */
+  .border-primary-400 {
+    border-color: var(--color-primary-400);
+  }
+
+  /* Text color utilities */
+  .text-primary-800 {
+    color: var(--color-primary-800);
+  }
+
+  /* Error dan Success Colors */
+  .text-error {
+    color: var(--color-error);
+  }
+
+  .bg-error {
+    background-color: var(--color-error);
+  }
+
+  .text-success {
+    color: var(--color-success);
+  }
+
+  .bg-success {
+    background-color: var(--color-success);
+  }
+
+  /* Animasi floating untuk elemen dekoratif */
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+
+  @keyframes float-slow {
+    0%,
+    100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-15px);
+    }
+  }
+
+  @keyframes sparkle {
+    0%,
+    100% {
+      opacity: 0;
+      transform: scale(0);
+    }
+    50% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  @keyframes pulse-glow {
+    0%,
+    100% {
+      box-shadow: 0 0 20px rgba(219, 39, 119, 0.3);
+    }
+    50% {
+      box-shadow: 0 0 40px rgba(219, 39, 119, 0.6);
+    }
+  }
+
+  @keyframes fade-in-up {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes shimmer {
+    0% {
+      background-position: -1000px 0;
+    }
+    100% {
+      background-position: 1000px 0;
+    }
+  }
+
+  /* Class untuk animasi */
+  .animate-float {
+    @apply animate-[float_3s_ease-in-out_infinite];
+  }
+
+  .animate-float-slow {
+    @apply animate-[float-slow_4s_ease-in-out_infinite];
+  }
+
+  .animate-sparkle {
+    @apply animate-[sparkle_2s_ease-in-out_infinite];
+  }
+
+  .animate-pulse-glow {
+    @apply animate-[pulse-glow_2s_ease-in-out_infinite];
+  }
+
+  .animate-fade-in-up {
+    @apply animate-[fade-in-up_0.8s_ease-out];
+  }
+
+  .animate-shimmer {
+    @apply animate-[shimmer_3s_linear_infinite];
+    background: linear-gradient(
+      to right,
+      transparent 0%,
+      rgba(255, 255, 255, 0.3) 50%,
+      transparent 100%
+    );
+    background-size: 1000px 100%;
+  }
+
+  /* Dekorasi elemen */
+  .decoration-heart {
+    @apply relative;
+  }
+
+  .decoration-heart::before {
+    content: "💕";
+    @apply absolute text-2xl opacity-30;
+    animation: float 3s ease-in-out infinite;
+  }
+
+  /* Gradient text untuk judul */
+  .text-gradient-primary {
+    background: linear-gradient(
+      135deg,
+      var(--color-primary-600),
+      var(--color-primary-400)
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Navbar Active State */
+  .menu-item {
+    position: relative;
+  }
+
+  .menu-item.active {
+    color: #c6700d !important;
+  }
+
+  .menu-item.active .menu-icon {
+    color: #c6700d !important;
+    transform: scale(1.15);
+  }
+
+  .menu-item.active .menu-item-text {
+    color: #c6700d !important;
+    font-weight: 600;
+  }
+
+  .menu-item:hover:not(.active) {
+    color: #a85c09 !important;
+  }
+
+  .menu-item:hover:not(.active) .menu-icon {
+    color: #a85c09 !important;
+  }
+
+  .menu-item:hover:not(.active) .menu-item-text {
+    color: #a85c09 !important;
+  }
+
+  /* Glass morphism effect */
+  .glass-effect {
+    @apply backdrop-blur-[10px] border border-white/20 bg-white/25;
+  }
+
+  /* Elegant border untuk card */
+  .elegant-border {
+    @apply relative;
+  }
+
+  .elegant-border::before {
+    content: "";
+    @apply absolute -inset-0.5 rounded-[inherit] p-0.5 opacity-50;
+    background: linear-gradient(
+      135deg,
+      var(--color-primary-400),
+      var(--color-primary-400)
+    );
+    -webkit-mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+  }
+
+  /* Sparkle effect */
+  .sparkle {
+    @apply relative inline-block;
+  }
+
+  .sparkle::before,
+  .sparkle::after {
+    content: "✨";
+    @apply absolute text-xs opacity-0;
+    animation: sparkle 2s ease-in-out infinite;
+  }
+
+  .sparkle::before {
+    @apply -top-2.5 -left-4;
+    animation-delay: 0s;
+  }
+
+  .sparkle::after {
+    @apply -bottom-2.5 -right-4;
+    animation-delay: 1s;
+  }
+
+  /* Animasi slide dari kanan untuk music controls */
+  @keyframes slide-in-from-right {
+    from {
+      transform: translateX(100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
+  .music-controls-visible {
+    animation: slide-in-from-right 0.5s ease-out forwards;
+  }
+
+  .music-controls-hidden {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+
+  /* Slideshow animation with zoom in-out and fade for welcome section */
+  @keyframes slideshow-zoom-in {
+    0% {
+      opacity: 0;
+      transform: scale(1);
+    }
+    5% {
+      opacity: 1;
+      transform: scale(1);
+    }
+    45% {
+      opacity: 1;
+      transform: scale(1.1);
+    }
+    50% {
+      opacity: 0;
+      transform: scale(1.1);
+    }
+    100% {
+      opacity: 0;
+      transform: scale(1);
+    }
+  }
+
+  @keyframes slideshow-zoom-out {
+    0% {
+      opacity: 0;
+      transform: scale(1.1);
+    }
+    5% {
+      opacity: 1;
+      transform: scale(1.1);
+    }
+    45% {
+      opacity: 1;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0;
+      transform: scale(1);
+    }
+    100% {
+      opacity: 0;
+      transform: scale(1.1);
+    }
+  }
+
+  .slideshow-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    opacity: 0; /* Default hidden */
+    border-radius: inherit; /* Inherit rounded-full from parent */
+  }
+
+  /* First image starts visible immediately with zoom in */
+  .slideshow-image:nth-child(1) {
+    animation: slideshow-zoom-in 20s infinite;
+    animation-delay: 0s;
+    opacity: 1;
+  }
+  /* Second image zooms out */
+  .slideshow-image:nth-child(2) {
+    animation: slideshow-zoom-out 20s infinite;
+    animation-delay: 4s;
+  }
+  /* Third image zooms in */
+  .slideshow-image:nth-child(3) {
+    animation: slideshow-zoom-in 20s infinite;
+    animation-delay: 8s;
+  }
+  /* Fourth image zooms out */
+  .slideshow-image:nth-child(4) {
+    animation: slideshow-zoom-out 20s infinite;
+    animation-delay: 12s;
+  }
+  /* Fifth image zooms in */
+  .slideshow-image:nth-child(5) {
+    animation: slideshow-zoom-in 20s infinite;
+    animation-delay: 16s;
+  }
+}
+
+/* ============================================
+   PRELOADER FADE-OUT ANIMATION
+   ============================================ */
+@layer utilities {
+  @keyframes fadeOut {
+    from {
+      opacity: 1;
+      visibility: visible;
+    }
+    to {
+      opacity: 0;
+      visibility: hidden;
+    }
+  }
+
+  #preloader.fade-out {
+    animation: fadeOut 0.5s ease-out forwards;
+  }
+
+  #preloader.hidden {
+    display: none !important;
+  }
+}
+
+/* ============================================
+   PRELOADER STYLES - Elegant Wedding Theme
+   ============================================ */
+@layer components {
+  .preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #2d3748; /* Dark gray background */
+    z-index: 99999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  /* Animated background pattern */
+  .preloader::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(
+      circle,
+      rgba(255, 255, 255, 0.1) 1px,
+      transparent 1px
+    );
+    background-size: 50px 50px;
+    animation: backgroundMove 20s linear infinite;
+    opacity: 0.3;
+  }
+
+  @keyframes backgroundMove {
+    0% {
+      transform: translate(0, 0);
+    }
+    100% {
+      transform: translate(50px, 50px);
+    }
+  }
+
+  .preloader-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    color: white;
+    max-width: 90%;
+  }
+
+  /* Loading text */
+  .preloader-loading-text {
+    font-family: var(--font-secondary);
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: white;
+    margin-bottom: 2rem;
+    letter-spacing: 2px;
+    animation: fadeIn 1s ease-in-out;
+  }
+
+
+
+  /* Progress bar */
+  .preloader-progress {
+    margin-top: 1rem;
+    animation: fadeIn 1s ease-in-out 0.5s both;
+  }
+
+  .progress-bar-container {
+    width: 280px;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 0 auto 0.75rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  }
+
+  .progress-bar {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.8) 0%,
+      rgba(255, 255, 255, 1) 50%,
+      rgba(255, 255, 255, 0.8) 100%
+    );
+    background-size: 200% 100%;
+    border-radius: 10px;
+    transition: width 0.3s ease;
+    animation: shimmerProgress 1.5s linear infinite;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+  }
+
+  @keyframes shimmerProgress {
+    0% {
+      background-position: -200% 0;
+    }
+    100% {
+      background-position: 200% 0;
+    }
+  }
+
+  .progress-text {
+    font-family: var(--font-secondary);
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.9);
+    margin: 0;
+    letter-spacing: 1px;
+  }
+
+  /* Mobile responsive */
+  @media (max-width: 768px) {
+
+    .preloader-loading-text {
+      font-size: 1.25rem;
+    }
+
+    .progress-bar-container {
+      width: 240px;
+    }
+  }
+}

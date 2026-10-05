@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="250" viewBox="0 0 200 250" fill="none">
+  <rect width="200" height="250" fill="#e2dcc9"/>
+  <!-- Shirt -->
+  <path d="M60 80 L60 220 L140 220 L140 80 Z" fill="#7da268" opacity="0.7"/>
+  <!-- Collar -->
+  <path d="M80 80 L100 100 L120 80 L100 70 Z" fill="#5a7245" opacity="0.8"/>
+  <!-- Tie -->
+  <path d="M95 100 L105 100 L107 130 L100 150 L93 130 Z" fill="#c4876a"/>
+  <text x="100" y="245" text-anchor="middle" font-family="Poppins, sans-serif" font-size="10" fill="#5a7245">Men's Attire</text>
+</svg>
